@@ -19,7 +19,7 @@
        <img src=".//images/Logo-removebg-preview.png" alt="">
       </div>
       <div class="login-box">
-        <form class="login-form" action="../Dashboard/dashboard.php">
+        <form class="login-form" action="">
           <h3 class="login-head"><i class="bi bi-person me-2"></i>INICIAR SESIÒN</h3>
           <div class="mb-3">
             <label class="form-label">CORREO</label>
