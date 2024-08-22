@@ -27,6 +27,7 @@ class Login extends Controllers
         if ($_POST) {
             if (empty($_POST['txtIdentificacion']) || empty($_POST['txtPassword'])) {
                 $arrResponse = array('status' => false, 'msg' => 'Error de datos');
+                echo "HOLA LOGIN";
             } else {
                 $strUsuario = strtolower(strClean($_POST['txtIdentificacion']));
                 $strPassword = hash("SHA256", $_POST['txtPassword']);
@@ -36,7 +37,7 @@ class Login extends Controllers
                 } else {
                     $arrData = $requestUser;
                     if ($arrData['status'] == 1) {
-                        $_SESSION['idUser'] = $arrData['ide_usuario'];
+                        $_SESSION['idUser'] = $arrData['ideusuario'];
                         $_SESSION['login'] = true;
 
                         $arrData = $this->model->sessionLogin($_SESSION['idUser']);

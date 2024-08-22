@@ -15,10 +15,11 @@ class LoginModel extends Mysql
     {
         $this->strUsuario = $usuario;
         $this->strPassword = $password;
-        $sql = "SELECT ide_usuario,status FROM tbl_usuarios WHERE
+        
+        $sql = "SELECT 'ideusuario', 'status' FROM tbl_usuarios WHERE
 					identificacion = '$this->strUsuario' and
-					password = '$this->strPassword' and
-					status != 0 ";
+					'password' = '$this->strPassword' and
+					'status' != 0 ";
         $request = $this->select($sql);
         return $request;
     }
@@ -27,7 +28,7 @@ class LoginModel extends Mysql
     {
         $this->intIdUsuario = $iduser;
         //BUSCAR ROL
-        $sql = "SELECT p.ide_usuario,
+        $sql = "SELECT p.ideusuario,
 							p.identificacion,
 							r.idrol,
                             r.nombrerol,
@@ -35,7 +36,7 @@ class LoginModel extends Mysql
 					FROM tbl_usuarios p
 					INNER JOIN rol r
 					ON p.rolid = r.idrol
-					WHERE p.ide_usuario = $this->intIdUsuario";
+					WHERE p.ideusuario = $this->intIdUsuario";
         $request = $this->select($sql);
         $_SESSION['userData'] = $request;
         return $request;

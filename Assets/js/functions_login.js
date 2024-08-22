@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			if(strIdentificacion == "" || strPassword == "")
 			{
-				// swal("Por favor", "Escribe la identificación y la contraseña.", "warning");
-				swal({   title: "Por favor",   text: "Escribe la identificación y la contraseña",   imageUrl: "Assets/images/Jose_Ramos_R.png" });
+				//swal("Por favor", "Escribe la identificación y la contraseña.", "warning");
+				swal({   title: "Por favor",   text: "Escribe la identificación y la contraseña",   imageUrl: "Assets/images/error.webp" });
 				return false;
 			}else{
 				divLoading.style.display = "flex";
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function(){
 						if(objData.status)
 						{
 							window.location = base_url+'/dashboard';
-							// swal("Bien", objData.msg, "success");
-							// window.location.reload(false);
+							swal("Bien", objData.msg, "success");
+							window.location.reload(false);
 						}else{
 							swal("Atención", objData.msg, "error");
 							document.querySelector('#txtPassword').value = "";

@@ -1,4 +1,4 @@
-<?php const BASE_URL = "http://localhost:80/sigma/";
+<?php const BASE_URL = "http://localhost/sigma/";
 
 
 // Configura la salida de errores por pantalla
