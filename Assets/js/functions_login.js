@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
 			if(strIdentificacion == "" || strPassword == "")
 			{
-				//swal("Por favor", "Escribe la identificación y la contraseña.", "warning");
+				// swal("Por favor", "Escribe la identificación y la contraseña.", "warning");
 				swal({   title: "Por favor",   text: "Escribe la identificación y la contraseña",   imageUrl: "Assets/images/error.webp" });
 				return false;
 			}else{
 				divLoading.style.display = "flex";
 				var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-				var ajaxUrl = base_url+'/Login/loginUser'; 
+				var ajaxUrl = base_url+'/Login/login'; 
 				var formData = new FormData(formLogin);
 				request.open("POST",ajaxUrl,true);
 				request.send(formData);
@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function(){
 						if(objData.status)
 						{
 							window.location = base_url+'/dashboard';
-							swal("Bien", objData.msg, "success");
-							window.location.reload(false);
+							// swal("Bien", objData.msg, "success");
+							// window.location.reload(false);
 						}else{
 							swal("Atención", objData.msg, "error");
 							document.querySelector('#txtPassword').value = "";
