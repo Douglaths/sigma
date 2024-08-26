@@ -52,7 +52,7 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="page-user.html"><i class="bi bi-gear me-2 fs-5"></i>Configuracion</a></li>
             <li><a class="dropdown-item" href="page-user.html"><i class="bi bi-person me-2 fs-5"></i> Perfil</a></li>
-            <li><a class="dropdown-item" href="page-login.html"><i class="bi bi-box-arrow-right me-2 fs-5"></i>Salir</a></li>
+            <li><a class="dropdown-item" href="Logout"><i class="bi bi-box-arrow-right me-2 fs-5"></i>Salir</a></li>
           </ul>
         </li>
       </ul>

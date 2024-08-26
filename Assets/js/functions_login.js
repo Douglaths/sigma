@@ -3,7 +3,7 @@ $('.login-content [data-toggle="flip"]').click(function() {
 	return false;
 });
 
-var divLoading = document.querySelector("#divLoading");
+//var divLoading = document.querySelector("#divLoading");
 document.addEventListener('DOMContentLoaded', function(){
 	if(document.querySelector("#formLogin")){
 		let formLogin = document.querySelector("#formLogin");
@@ -16,22 +16,31 @@ document.addEventListener('DOMContentLoaded', function(){
 			if(strIdentificacion == "" || strPassword == "")
 			{
 				// swal("Por favor", "Escribe la identificación y la contraseña.", "warning");
-				swal({   title: "Por favor",   text: "Escribe la identificación y la contraseña",   imageUrl: "Assets/images/error.webp" });
+				swal({   title: "Por favor",   text: "Escribe la identificación y/o la contraseña",   imageUrl: "Assets/images/error.webp" });
 				return false;
 			}else{
-				divLoading.style.display = "flex";
+				//divLoading.style.display = "flex";
 				var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-				var ajaxUrl = base_url+'/Login/login'; 
+				var ajaxUrl = base_url+'/Login/loginUser'; 
+				console.log(request);
+				console.log(ajaxUrl);
 				var formData = new FormData(formLogin);
+				console.log(formData);
 				request.open("POST",ajaxUrl,true);
 				request.send(formData);
+				console.log(request.responseText);
 				request.onreadystatechange = function(){
+					console.log(request);
 					if(request.readyState != 4) return;
 					if(request.status == 200){
-						var objData = JSON.parse(request.responseText);
+						console.log(request.responseText);
+						var jsonMatch = request.responseText.match(/\{.*\}/);
+						var jsonText = jsonMatch[0];
+						var objData = JSON.parse(jsonText);
+						console.log(objData);
 						if(objData.status)
 						{
-							window.location = base_url+'/dashboard';
+							window.location = base_url+'dashboard';
 							// swal("Bien", objData.msg, "success");
 							// window.location.reload(false);
 						}else{
@@ -41,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					}else{
 						swal("Atención","Error en el proceso", "error");
 					}
-					divLoading.style.display = "none";
+					//divLoading.style.display = "none";
 					return false;
 				}
 			}

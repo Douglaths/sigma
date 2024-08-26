@@ -23,20 +23,23 @@ class Login extends Controllers
 
     public function loginUser()
     {
-        // dep($_POST);
+        dep($_POST);
+        header('Content-Type: application/json');
         if ($_POST) {
             if (empty($_POST['txtIdentificacion']) || empty($_POST['txtPassword'])) {
                 $arrResponse = array('status' => false, 'msg' => 'Error de datos');
+                
             } else {
                 $strUsuario = strtolower(strClean($_POST['txtIdentificacion']));
                 $strPassword = hash("SHA256", $_POST['txtPassword']);
                 $requestUser = $this->model->loginUser($strUsuario, $strPassword);
+                
                 if (empty($requestUser)) {
                     $arrResponse = array('status' => false, 'msg' => 'La identificación y/o contraseña es incorrecta');
                 } else {
                     $arrData = $requestUser;
                     if ($arrData['status'] == 1) {
-                        $_SESSION['idUser'] = $arrData['ide_usuario'];
+                        $_SESSION['idUser'] = $arrData['ideusuario'];
                         $_SESSION['login'] = true;
 
                         $arrData = $this->model->sessionLogin($_SESSION['idUser']);
@@ -53,3 +56,4 @@ class Login extends Controllers
     }
 
 }
+
