@@ -1,4 +1,4 @@
-<?php const BASE_URL = "http://localhost/sigma/";
+<?php const BASE_URL = "http://localhost/sigma";
 
 
 // Configura la salida de errores por pantalla
@@ -57,3 +57,4 @@ const PINICIO = 1;
 
 //Roles
 const RADMINISTRADOR = 1;
+const RCOORDINADOR = 2;

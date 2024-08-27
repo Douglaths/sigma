@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function(){
 						console.log(objData);
 						if(objData.status)
 						{
-							window.location = base_url+'dashboard';
+							window.location = base_url+'/dashboard';
 							// swal("Bien", objData.msg, "success");
 							// window.location.reload(false);
 						}else{
